@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Samyukta ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff0f4;color:#51404a;font-family:Poppins,sans-serif}
+button{font:inherit;cursor:pointer}
+.page{display:none;min-height:100vh;padding:25px 18px}
+.page.active{display:flex;flex-direction:column;align-items:center;justify-content:center;animation:appear .6s}
+h1,h2{font-family:'Dancing Script',cursive;color:#f05280}
+h1{font-size:clamp(42px,8vw,68px);margin:10px 0}
+h2{font-size:42px}
+p{line-height:1.8}
+button{border:0;border-radius:30px;padding:13px 25px}
+.pink{background:linear-gradient(120deg,#ff9bb8,#ed4779);color:white;box-shadow:0 6px 18px #e95b8535}
+.white{background:white;color:#ed4779;border:1px solid #ffc0d0}
+.card{background:#ffffffd9;border:1px solid white;border-radius:28px;padding:35px 25px;width:min(100%,520px);text-align:center;box-shadow:0 15px 45px #d84c7020}
+.icon{font-size:65px}
+.small{color:#ed7292;font-size:13px}
+input{width:100%;padding:15px;border:1px solid #ffc1d1;border-radius:15px;text-align:center;margin:15px 0;outline:none}
+#proposal{background:linear-gradient(140deg,#ffd3df,#fff0f4,#ffcbd9)}
+.buttons{display:flex;gap:15px;justify-content:center;align-items:center;flex-wrap:wrap;min-height:80px}
+#no{position:relative}
+#home{background:linear-gradient(140deg,#ffd2df,#fff0f4,#ffcbd9);padding:0}
+nav{width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+nav strong{font-family:'Dancing Script';font-size:27px;color:#ed4779}
+nav button{background:transparent;padding:8px;color:#75495a}
+nav button:hover{color:#ed4779}
+.hero{margin:auto;text-align:center;padding:60px 20px;max-width:850px}
+.hero h1{font-size:clamp(48px,9vw,85px);line-height:1.15}
+.hero p{max-width:650px;margin:20px auto 30px}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+footer{text-align:center;color:#c15d7c;padding:20px}
+.letter{background:#fffaf8;width:min(100%,760px);padding:clamp(25px,6vw,60px);border-radius:10px;box-shadow:0 12px 40px #8d4c6018;line-height:2;font-family:Georgia,serif}
+.letter h1{text-align:center;font-size:45px}
+.signature{font-family:'Dancing Script';font-size:36px;color:#ed4779}
+.grid{width:min(100%,1000px);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.flower{background:#fff0f4;border-radius:24px;padding:24px 10px;min-height:190px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#654b58;box-shadow:0 8px 20px #c95d7c15}
+.flower span{width:75px;height:75px;border-radius:50%;display:grid;place-items:center;font-size:40px;background:#ffd1de}
+.flower:hover{transform:translateY(-5px)}
+#flowerMessage{color:#e84f7e;text-align:center;min-height:40px}
+.gallery{width:min(100%,900px);display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.photo{background:white;padding:12px;box-shadow:0 8px 20px #c95d7c20;transform:rotate(-1deg)}
+.photo:nth-child(even){transform:rotate(1deg)}
+.photo img{width:100%;height:250px;object-fit:cover;background:#ffe0e9}
+.photo p{text-align:center;font-family:'Dancing Script';font-size:24px;color:#e84f7e;margin:8px}
+.back{align-self:flex-start;background:#fff0f4;color:#e84f7e;margin-bottom:15px}
+.music{position:fixed;right:18px;bottom:18px;border-radius:50%;width:53px;height:53px;background:#ed4779;color:white;font-size:23px;z-index:5}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.heart{position:absolute;bottom:-30px;color:#f47b9e;animation:float 8s linear forwards}
+.page>*{position:relative;z-index:1}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+@media(max-width:650px){
+.grid{grid-template-columns:repeat(2,1fr);gap:12px}
+.gallery{grid-template-columns:1fr}
+nav{justify-content:center}
+nav strong{width:100%;text-align:center}
+nav button{font-size:12px;padding:6px}
+.flower{min-height:165px}
+.photo img{height:260px}
+}
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<audio id="music" src="song.mp3" loop></audio>
+
+<!-- 1. PASSWORD PAGE -->
+<section class="page active" id="lock">
+ <div class="card">
+  <div class="icon">💌</div>
+  <p class="small">A little surprise, just for you</p>
+  <h1>Hey, Samyukta!</h1>
+  <p>I've made something special for you. But first, you need to unlock my little secret. ❤️</p>
+  <input id="code" type="password" placeholder="Enter your secret code">
+  <button class="pink" style="width:100%" onclick="unlock()">Unlock My Surprise ✨</button>
+  <p id="error" class="small">A little clue: 143 means I love you.</p>
+  <div style="color:#f47b9e;font-size:23px">♡ ♡ ♡</div>
+ </div>
+</section>
+
+<!-- 2. PROPOSAL PAGE -->
+<section class="page" id="proposal">
+ <div class="card">
+  <div class="icon">💗</div>
+  <p class="small">There's something I've wanted to ask you...</p>
+  <h1>Sam, Will You Be My Girlfriend?</h1>
+  <p>You make my ordinary days beautiful. I have one little question for you.</p>
+  <div class="buttons">
+   <button class="pink" onclick="celebrate()">YES! 💖</button>
+   <button class="white" id="no">NO 🙈</button>
+  </div>
+  <p class="small" id="noText">Hehe, are you sure? 🥺</p>
+ </div>
+</section>
+
+<!-- 3. HOME PAGE -->
+<section class="page" id="home">
+ <nav>
+  <strong>♥ My Love</strong>
+  <div>
+   <button onclick="show('home')">Home</button>
+   <button onclick="show('letter')">Letter 💌</button>
+   <button onclick="show('flowers')">Flowers 🌸</button>
+   <button onclick="show('gallery')">Gallery 📸</button>
+  </div>
+ </nav>
+ <div class="hero">
+  <div class="icon">❤️</div>
+  <p class="small">A little corner of the internet, made just for you</p>
+  <h1>For the Most Beautiful Person of My Life 💖</h1>
+  <p>Some people make life more beautiful just by being in it. For me, that person is you, Sam. Sam can i be your boyfriend and Your smile is one of my favourite things in this world.</p>
+  <div class="actions">
+   <button class="pink" onclick="show('letter')">Read My Letter ✨</button>
+   <button class="white" onclick="show('gallery')">Our Memories 📸</button>
+  </div>
+ </div>
+ <footer>Made with all my heart, by Bishwas ♡</footer>
+</section>
+
+<!-- 4. LETTER PAGE -->
+<section class="page" id="letter">
+ <button class="back" onclick="show('home')">← Home</button>
+ <article class="letter">
+  <div style="text-align:center;font-size:45px">💌</div>
+  <p class="small" style="text-align:center">A letter from my heart</p>
+  <h1>To My Special Person, Samyukta</h1>
+  <p>Dear Sam,</p>
+  <p>I don't know if I will ever find the perfect words to explain how I feel, but I want to try.</p>
+  <p>I've liked you since Class 10. Maybe I didn't know how to say it back then, or maybe I was simply waiting for the right moment. But one thing has always stayed with me: your smile.</p>
+  <p>Your smile has a way of making my day better, even when nothing else is going right. Whenever I think about you, I find myself smiling too.</p>
+  <p>I wanted to make something special for you instead of keeping all these feelings inside. I don't expect a perfect answer. I just want you to know that you mean so much to me.</p>
+  <p>If you feel the same, I'd love to make beautiful memories together, support you, make you laugh and be someone who makes your days brighter.</p>
+  <h2 style="text-align:center">Would you let me be your boyfriend? ❤️</h2>
+  <p>With all my love,</p>
+  <p class="signature">Bishwas ♡</p>
+ </article>
+</section>
+
+<!-- 5. FLOWERS PAGE -->
+<section class="page" id="flowers">
+ <button class="back" onclick="show('home')">← Home</button>
+ <p class="small">A flower for every reason I adore you</p>
+ <h1>Flowers For You 🌸</h1>
+ <p>Tap each flower to discover a little message.</p>
+ <div class="grid">
+  <button class="flower" onclick="flower('Like a rose, you make everything around you more beautiful. 🌹')"><span>🌹</span><b>Red Rose</b><small>For your beauty</small></button>
+  <button class="flower" onclick="flower('You bring sunshine into my ordinary days. ☀️')"><span>🌻</span><b>Sunflower</b><small>For your smile</small></button>
+  <button class="flower" onclick="flower('You make my world feel peaceful and beautiful. 💜')"><span>🪻</span><b>Lavender</b><small>For your kindness</small></button>
+  <button class="flower" onclick="flower('Beautiful things bloom in their own time, just like love. 🌷')"><span>🌷</span><b>Tulip</b><small>For our story</small></button>
+  <button class="flower" onclick="flower('Your smile is my favourite kind of sunshine. 🌼')"><span>🌼</span><b>Daisy</b><small>For your happiness</small></button>
+  <button class="flower" onclick="flower('You are precious to me, today and every day. 🤍')"><span>🤍</span><b>Lily</b><small>Just for you</small></button>
+ </div>
+ <h3 id="flowerMessage">Choose a flower, my love. ♡</h3>
+</section>
+
+<!-- 6. GALLERY PAGE -->
+<section class="page" id="gallery">
+ <button class="back" onclick="show('home')">← Home</button>
+ <p class="small">Little moments worth keeping</p>
+ <h1>Our Memories 📸</h1>
+ <p>Our favourite memories and your beautiful pictures.</p>
+ <div class="gallery">
+  <div class="photo"><img src="1.jpg" alt="Memory one"><p>A moment to remember ♡</p></div>
+  <div class="photo"><img src="2.jpg" alt="Memory two"><p>Your beautiful smile</p></div>
+  <div class="photo"><img src="3.jpg" alt="Memory three"><p>One of my favourites</p></div>
+  
+ </div>
+ <h3 style="color:#e84f7e">The best chapters are still waiting to be written. ❤️</h3>
+</section>
+
+<button class="music" onclick="toggleMusic()" title="Play or pause music">♫</button>
+
+<script>
+// CHANGE YOUR SECRET CODE HERE
+const SECRET_CODE = "iloveyou";
+
+function show(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo(0,0);
+}
+
+function unlock(){
+ const code=document.getElementById('code').value.trim();
+ if(code===SECRET_CODE){
+  show('proposal');
+  document.getElementById('music').play().catch(()=>{});
+  document.getElementById('error').textContent='';
+ }else{
+  document.getElementById('error').textContent='Oops! Wrong code. Try again, my love. 💗';
+  document.getElementById('code').value='';
+ }
+}
+
+document.getElementById('code').addEventListener('keydown',e=>{
+ if(e.key==='Enter')unlock();
+});
+
+const no=document.getElementById('no');
+no.addEventListener('pointerenter',()=>{
+ no.style.transform=`translate(${Math.random()*140-70}px,${Math.random()*90-45}px)`;
+ document.getElementById('noText').textContent='Hehe, give YES a chance! 🥺';
+});
+no.addEventListener('click',()=>{
+ document.getElementById('noText').textContent='That button is too shy! 🙈';
+ no.style.transform=`translate(${Math.random()*120-60}px,${Math.random()*80-40}px)`;
+});
+
+function celebrate(){
+ show('home');
+ for(let i=0;i<45;i++){
+  setTimeout(createHeart,i*60);
+ }
+ alert('You just made me the happiest person! ❤️');
+ document.getElementById('music').play().catch(()=>{});
+}
+
+function flower(message){
+ document.getElementById('flowerMessage').textContent=message;
+}
+
+function toggleMusic(){
+ const m=document.getElementById('music');
+ if(m.paused)m.play().catch(()=>alert('Add assets/song.mp3 first.'));
+ else m.pause();
+}
+
+function createHeart(){
+ const h=document.createElement('span');
+ h.className='heart';
+ h.textContent=Math.random()>.5?'♥':'♡';
+ h.style.left=Math.random()*100+'%';
+ h.style.fontSize=(15+Math.random()*25)+'px';
+ h.style.animationDuration=(4+Math.random()*5)+'s';
+ document.getElementById('hearts').appendChild(h);
+ setTimeout(()=>h.remove(),10000);
+}
+setInterval(createHeart,800);
+</script>
+</body>
+</html>
